@@ -1,61 +1,107 @@
 <div align="center">
 
-# 🐋 MoeCursor · DeepSeek 娘鼠标指针
+# 🐋 FeiyuCursor · 大肥鱼指针
+### 把 DeepSeek 娘 (大肥鱼) 做成你的 Windows 鼠标指针！
 
-**把 DeepSeek 娘做成你的鼠标指针！**
+**原汁原味奶蓝经典 · 16帧动态呼吸星轨 · 17项完备覆盖 · Windows 11 / 10 高清自适应**
 
-贴纸风格 · 蓝白配色 · 粉色小爱心 · 完整覆盖 Windows 11 全部 17 种指针
+[![Windows 11 Supported](https://img.shields.io/badge/Windows-11%20%7C%2010-0078D6?logo=windows&logoColor=white)](https://github.com/yunyancuo/FeiyuCursor)
+[![Cursors Count](https://img.shields.io/badge/Cursors-17%20Types-FF7B9C?logo=cursor&logoColor=white)](https://github.com/yunyancuo/FeiyuCursor)
+[![Animated ANI](https://img.shields.io/badge/Animated-.ANI%20Support-F7B731)](https://github.com/yunyancuo/FeiyuCursor)
+[![DPI Scaling](https://img.shields.io/badge/Resolution-32--256px%20HiDPI-20BF6B)](https://github.com/yunyancuo/FeiyuCursor)
 
-<img src="character_square.png" width="220" alt="DeepSeek 娘"/>
+<br/>
 
-![预览](效果预览.png)
+<img src="character_square.png" width="200" alt="DeepSeek 大肥鱼娘"/>
 
-`Windows 11` `.cur 位图` `17 种指针角色` `32–256px 多尺寸`
+<br/>
+
+![效果预览](效果预览.png)
 
 </div>
 
 ---
 
-## ✨ 这是什么
+## 🐟 为什么叫「大肥鱼指针」？
 
-本仓库将 **DeepSeek 娘**（DeepSeek 的娘化吉祥物形象）制作成一套完整的 Windows 鼠标指针。
-角色以白色贴纸 + 深蓝描边的形式出现在每个指针上：正常选择、文本选择的旁边她会探出头来，
-"忙"的时候她占满整个指针，不可用时会帮她撑起一个红色禁止圈，后台运行时头顶还有一颗小星星。
+DeepSeek 官方吉祥物是一只灵动治愈的深蓝小鲸鱼。在广大开发者、极客与爱好者群体中，大家最熟悉也最亲切的爱称就是 **“大肥鱼”**（或“肥鱼娘”）。
+本项目以 **“大肥鱼 (FeiyuCursor)”** 全新命名，既接地气又充满情怀，让大肥鱼在你的桌面上每天伴你摸鱼与高效工作！
 
-![实际效果](真实效果预览.png)
+---
 
-## 📦 指针一览（17 个）
+## ✨ 核心亮点与特色
 
-| 文件 | 角色 | 文件 | 角色 |
+- 🎯 **正常选择保留原版经典**：采纳大家最喜爱的经典设计，温润马卡龙纯色天蓝箭头 + 大肥鱼娘贴纸探头 + 单个点缀的粉色小爱心，视觉清爽耐看，打字打游戏绝不遮挡视野！
+- 💫 **【全新】16 帧丝滑动态呼吸星轨 (`.ani`)**：
+  - **忙碌 (Busy)**：大肥鱼娘微幅呼吸沉浮，环绕金色星轨平滑自转，电脑加载卡顿时赏心悦目。
+  - **后台运行 (AppStarting)**：箭头点击尖端保持 100% 绝对稳固，身旁金色星曜 360° 顺畅自转。
+- 🛡️ **软萌不可用状态**：告别生硬粗暴的大红粗叉，改为半透明珊瑚红「水晶结界防护泡泡」+ 大肥鱼娘微汗困扰表情。
+- 🔍 **专业级精确与文本选择**：
+  - **精确选择**：1px 中心留空星轨准星，专业像素级定位无遮挡。
+  - **文本选择**：双色高对比工字梁（深蓝抗光外廓 + 亮白内芯），在纯白文档或 VS Code 深色编辑器中均清晰显眼。
+- 📱 **高颜值小红书种草宣传图**：内置精心制作的 3:4 竖屏高清种草展示海报，开箱即用。
+
+---
+
+## 📦 全套 17 项指针一览
+
+| 指针文件 | 对应系统角色 | 特色说明 | 热点位置 |
 |---|---|---|---|
-| moe_arrow.cur | 正常选择 | moe_hand.cur | 链接选择 |
-| moe_help.cur | 帮助选择 | moe_busy.cur | 忙 |
-| moe_appstart.cur | 后台运行 | moe_no.cur | 不可用 |
-| moe_cross.cur | 精确选择 | moe_ibeam.cur | 文本选择 |
-| moe_pen.cur | 手写 | moe_up.cur | 备用选择 |
-| moe_sizens.cur | 上下调整 | moe_sizewe.cur | 左右调整 |
-| moe_sizenwse.cur | 对角调整 1 | moe_sizenesw.cur | 对角调整 2 |
-| moe_sizeall.cur | 移动 | moe_pin.cur | 位置选择 |
-| moe_person.cur | 个人选择 | | |
+| `feiyu_arrow.cur` | **正常选择** | 经典温润浅蓝箭头 + 探头 + 萌心 | `(0, 0)` 顶端 |
+| `feiyu_hand.cur` | **链接选择** | 星芒触控手 + 指尖点击微光 | 食指尖端 |
+| `feiyu_busy.ani` / `.cur` | **忙** | **【16帧动态动画】** 呼吸沉浮 + 环绕星轨 | `(居中, 居中)` |
+| `feiyu_appstart.ani` / `.cur` | **后台运行** | **【16帧动态动画】** 原版稳固箭头 + 旋转星曜 | `(0, 0)` 箭头尖端 |
+| `feiyu_no.cur` | **不可用** | 水晶防护结界泡泡 + 困扰微汗神态 | `(居中, 居中)` |
+| `feiyu_cross.cur` | **精确选择** | 灵寻星轨准星（1px中心留空十字） | `(居中, 居中)` |
+| `feiyu_ibeam.cur` | **文本选择** | 高对比双色工字梁 + 大肥鱼探头 | `(中心, 居中)` |
+| `feiyu_help.cur` | **帮助选择** | 浅蓝箭头 + 浮光问号思考气泡 | `(0, 0)` 箭头尖端 |
+| `feiyu_pen.cur` | **手写输入** | 灵羽数位星笔 + 笔尖星曜微芒 | 笔尖书写点 |
+| `feiyu_up.cur` | **备用选择** | 垂直升腾星矢 + 探头 | `(居中, 1)` |
+| `feiyu_sizens.cur` | **上下调整** | 星核胶囊垂直双向箭头 | `(居中, 居中)` |
+| `feiyu_sizewe.cur` | **左右调整** | 星核胶囊水平双向箭头 | `(居中, 居中)` |
+| `feiyu_sizenwse.cur` | **对角调整 1** | 星核胶囊 45° 双向箭头 | `(居中, 居中)` |
+| `feiyu_sizenesw.cur` | **对角调整 2** | 星核胶囊 -45° 双向箭头 | `(居中, 居中)` |
+| `feiyu_sizeall.cur` | **移动** | 星核罗盘四向移动标 | `(居中, 居中)` |
+| `feiyu_pin.cur` | **位置选择** | 水晶心曜定位标 | 食指尖端 |
+| `feiyu_person.cur` | **个人选择** | 萌趣金冠化身徽章 | 食指尖端 |
 
-每个 `.cur` 内置 **32 / 48 / 64 / 96 / 128 / 192 / 256px** 多档尺寸（32 位透明通道），
-配合系统的指针大小设置自动切换，最大 256px 也不模糊。
+> 每个 `.cur` 均内置 **32 / 48 / 64 / 96 / 128 / 192 / 256px** 多档分辨率（32位透明通道），在 100%~300% 系统 DPI 缩放下自动无损匹配。
 
-## 🔧 安装（Windows 10 / 11）
+---
 
-1. 下载本仓库（`Code → Download ZIP`，解压后可得 `MoeCursor.zip`）
-2. 右键 `安装鼠标指针.inf` → **安装**
-3. `Win + R` 输入 `main.cpl` 回车 →「指针」选项卡 → 方案选 **MoeCursor** → 确定
+## 🚀 极速安装使用（Windows 10 / 11）
 
-调节大小：设置 → 辅助功能 → 鼠标指针和触控 →「大小」滑块。
-恢复默认：同一界面方案选「Windows 默认（系统方案）」即可。
+### 方法一：一键自动安装（最推荐）
+1. 在仓库 Releases 或根目录下载 `FeiyuCursor_大肥鱼指针.zip` 并解压；
+2. 双击运行 **`一键安装并应用.bat`**；
+3. 脚本会自动将所有指针部署到系统目录并导入方案；
+4. 随后自动弹出鼠标属性面板，方案已自动选中 **「大肥鱼指针」**，点击 **「确定」** 秒换装完成！🎉
 
-## 🎨 自己改
+### 方法二：经典 INF 安装
+1. 右键点击 `安装鼠标指针.inf` → 选择 **「安装」**；
+2. 快捷键 `Win + R` 输入 `main.cpl` 打开鼠标属性；
+3. 切换到「指针」选项卡，在「方案」下拉列表中选择 **「大肥鱼指针」**；
+4. 点击「确定」即可。
 
-`build_v4.py` 是全部生成逻辑（Python + NumPy + OpenCV + Pillow），
-改配色、浓度、爱心、角色大小等参数后重跑一遍就能重新生成整套指针。
+---
 
-## 📄 说明
+## 🎨 种草海报
 
-- 指针文件与脚本按现状提供，随便用、随便改
-- DeepSeek 娘角色形象版权归 DeepSeek 所有，本仓库仅将其制作成光标的形式分发，请勿用于商业用途
+<div align="center">
+  <img src="小红书演示图.png" width="460" alt="小红书种草演示图"/>
+</div>
+
+---
+
+## 🛠️ 自定义与二次构建
+
+全套指针由 Python 脚本自动化构建生成（基于 Pillow、OpenCV 与 NumPy）：
+- 重新构建全套指针：`python build_feiyu.py`
+- 重新生成小红书海报：`python create_xhs_poster.py`
+
+---
+
+## 📄 开源与版权说明
+
+- 本项目鼠标指针方案与生成脚本完全开源免费，欢迎自由分享与二创；
+- DeepSeek 娘角色形象版权归 DeepSeek 官方所有，本仓库仅作为桌面个性化美化用途，请勿用于商业牟利。
