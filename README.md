@@ -85,22 +85,6 @@ DeepSeek 官方吉祥物是一只灵动治愈的深蓝小鲸鱼。在广大开�
 
 ---
 
-## 🎨 种草海报
-
-<div align="center">
-  <img src="小红书演示图.png" width="460" alt="小红书种草演示图"/>
-</div>
-
----
-
-## 🛠️ 自定义与二次构建
-
-全套指针由 Python 脚本自动化构建生成（基于 Pillow、OpenCV 与 NumPy）：
-- 重新构建全套指针：`python build_feiyu.py`
-- 重新生成小红书海报：`python create_xhs_poster.py`
-
----
-
 ## 📄 开源与版权说明
 
 - 本项目鼠标指针方案与生成脚本完全开源免费，欢迎自由分享与二创；
