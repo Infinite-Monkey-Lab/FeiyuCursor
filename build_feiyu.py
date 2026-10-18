@@ -7,7 +7,7 @@
 - 精确选择/文本/不可用/手写/缩放：全套细节深度美化
 - 全覆盖 Windows 11 17 种指针 + 32~256px 多档 DPI 无损渲染
 """
-import struct, math, sys, os
+import struct, math, sys, os, base64, io
 import numpy as np, cv2
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
@@ -201,63 +201,57 @@ def star4_glyph(size, ow=1.5, fill=GOLD_STAR, outline=NAVYD):
     return np.asarray(im.crop(bb)).astype(np.float32)
 
 def heart_glyph(size, ow=1.5):
+    """圆润饱满的萌动爱心（饱满凸弧度，双重立体高光，圆嘟嘟绝不干瘪）"""
     k = 4
-    W = int(size * k) + int(ow * k) * 4 + 8 * k
+    W = int(size * k)
     im = Image.new('RGBA', (W, W), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
-    pad = int(ow * k) * 2 + 4 * k
-    u = size * k
-    def heart(dd, extra, col):
-        dd.ellipse([pad+0.03*u-extra, pad+0.02*u-extra, pad+0.55*u+extra, pad+0.54*u+extra], fill=col)
-        dd.ellipse([pad+0.45*u-extra, pad+0.02*u-extra, pad+0.97*u+extra, pad+0.54*u+extra], fill=col)
-        dd.polygon([(pad+0.06*u-extra, pad+0.30*u), (pad+0.94*u+extra, pad+0.30*u), (pad+0.50*u, pad+1.02*u+extra)], fill=col)
-    
-    heart(d, int(ow*k*1.6), NAVYD)
-    heart(d, 0, PINK_HEART)
-    d.ellipse([pad+0.16*u, pad+0.13*u, pad+0.32*u, pad+0.28*u], fill=PINK_LIGHT)
-    d.ellipse([pad+0.20*u, pad+0.16*u, pad+0.27*u, pad+0.23*u], fill=(255, 255, 255, 255))
-    im = im.resize((W // k, W // k), Image.LANCZOS)
+    cx, cy = W / 2.0, W / 2.0 - size * 0.05 * k
+    u = size * k * 0.48
+    pts = []
+    steps = 100
+    for i in range(steps):
+        t = i * (2 * math.pi / steps)
+        x = 16 * (math.sin(t) ** 3)
+        y = -(13.5 * math.cos(t) - 5.5 * math.cos(2*t) - 2.2 * math.cos(3*t) - math.cos(4*t))
+        pts.append((cx + x * (u / 17.0), cy + y * (u / 17.0)))
+    d.polygon(pts, fill=NAVYD)
+    d.line(pts + [pts[0]], width=max(2, int(ow * k * 2.0)), fill=NAVYD, joint='curve')
+    d.polygon(pts, fill=PINK_HEART)
+    d.ellipse([cx - u*0.65, cy - u*0.55, cx - u*0.25, cy - u*0.20], fill=PINK_LIGHT)
+    d.ellipse([cx - u*0.55, cy - u*0.48, cx - u*0.35, cy - u*0.30], fill=(255, 255, 255, 255))
+    sz = max(1, int(round(size)))
+    im = im.resize((sz, sz), Image.LANCZOS)
     bb = im.getbbox()
     return np.asarray(im.crop(bb)).astype(np.float32)
 
+
+NATIVE_HAND_B64 = """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"""
+_native_hand_cache = None
+def get_native_hand():
+    global _native_hand_cache
+    if _native_hand_cache is None:
+        raw = base64.b64decode(NATIVE_HAND_B64.strip())
+        _native_hand_cache = Image.open(io.BytesIO(raw)).convert('RGBA')
+    return _native_hand_cache
+
 def hand_glyph(S, ow):
-    k = 4
-    W = int(S * k) + int(ow * k) * 4 + 14 * k
-    im = Image.new('RGBA', (W, W), (0, 0, 0, 0))
-    pad = int(ow * k) * 2 + 6 * k
-    u = S * k
-    d = ImageDraw.Draw(im)
-
-    def parts(extra, col):
-        d.rounded_rectangle([pad+0.15*u-extra, pad+0.04*u-extra, pad+0.31*u+extra, pad+0.64*u+extra], radius=(0.16*u)/2+extra, fill=col)
-        d.rounded_rectangle([pad+0.35*u-extra, pad+0.24*u-extra, pad+0.50*u+extra, pad+0.64*u+extra], radius=(0.15*u)/2+extra, fill=col)
-        d.rounded_rectangle([pad+0.54*u-extra, pad+0.28*u-extra, pad+0.68*u+extra, pad+0.64*u+extra], radius=(0.14*u)/2+extra, fill=col)
-        d.rounded_rectangle([pad+0.72*u-extra, pad+0.38*u-extra, pad+0.85*u+extra, pad+0.64*u+extra], radius=(0.13*u)/2+extra, fill=col)
-        d.ellipse([pad+0.07*u-extra, pad+0.42*u-extra, pad+0.33*u+extra, pad+0.80*u+extra], fill=col)
-        d.rounded_rectangle([pad+0.11*u-extra, pad+0.52*u-extra, pad+0.86*u+extra, pad+0.88*u+extra], radius=0.13*u+extra, fill=col)
-        d.rounded_rectangle([pad+0.24*u-extra, pad+0.86*u-extra, pad+0.78*u+extra, pad+0.99*u+extra], radius=0.09*u+extra, fill=col)
-
-    owk = int(ow * k * 2)
-    parts(owk, NAVYD)
-    parts(0, (232, 244, 255, 255))
-    d.rounded_rectangle([pad+0.17*u, pad+0.07*u, pad+0.29*u, pad+0.35*u], radius=(0.12*u)/2, fill=(255, 255, 255, 180))
-
-    for x0 in (0.32, 0.52, 0.70):
-        d.line([pad + x0*u, pad + 0.36*u, pad + x0*u, pad + 0.62*u], fill=NAVYD, width=max(2, int(ow * k * 0.8)))
-
-    spark_cx = pad + 0.23 * u
-    spark_cy = pad + 0.04 * u
-    d.ellipse([spark_cx-3*k, spark_cy-3*k, spark_cx+3*k, spark_cy+3*k], fill=(255, 255, 255, 240))
-    d.line([spark_cx-6*k, spark_cy, spark_cx+6*k, spark_cy], fill=GOLD_STAR, width=int(1.2*k))
-    d.line([spark_cx, spark_cy-6*k, spark_cx, spark_cy+6*k], fill=GOLD_STAR, width=int(1.2*k))
-
-    im = im.resize((W // k, W // k), Image.LANCZOS)
-    bb = im.getbbox()
-    g = np.asarray(im.crop(bb)).astype(np.float32)
-    ys, xs = np.where(g[..., 3] > 127)
-    ty = int(ys.min())
-    tx = float(xs[ys == ty].mean())
-    return g, (tx, ty)
+    """官方原生 Aero 优雅指向手势，指尖圆润纯净，绝对无黑色杂色"""
+    hand_src = get_native_hand()
+    hh = int(round(S * 0.68))
+    hw = int(round(hh * hand_src.width / hand_src.height))
+    rh = hand_src.resize((hw, hh), Image.LANCZOS)
+    arr = np.asarray(rh).astype(np.float32)
+    dark_factor = (1.0 - (arr[..., :3].mean(axis=-1) / 255.0)) * (arr[..., 3] / 255.0)
+    NAVYD_F = np.array([34, 62, 128], dtype=np.float32)
+    WHITE_F = np.array([255, 255, 255], dtype=np.float32)
+    styled = np.zeros_like(arr)
+    for c in range(3):
+        styled[..., c] = WHITE_F[c] * (1.0 - dark_factor) + NAVYD_F[c] * dark_factor
+    styled[..., 3] = arr[..., 3]
+    tx = hw * (39.5 / 96.0)
+    ty = 0.0
+    return styled, (tx, ty)
 
 def question_bubble_glyph(size, ow):
     k = 4
@@ -544,17 +538,19 @@ def compose_arrow(S):
     arrow_g = np.asarray(im).astype(np.float32)
     paste_at(c, arrow_g, 1 - int(ow), 1 - int(ow))
     if S >= 48:
-        paste_center(c, heart_glyph(S*0.20, max(1, S/110)), 0.74, 0.10)
+        paste_center(c, heart_glyph(int(S*0.22), max(1, S//110)), 0.75, 0.10)
     return finish(c), (0, 0)
 
 def hand_base(S):
-    c = peek_canvas(S, 0.52, 0.46, 0.42)
+    c = np.zeros((S, S, 4), np.float32)
     if S >= 48:
-        paste_center(c, heart_glyph(S*0.18, max(1, S/110)), 0.88, 0.08)
-    g, (tx, ty) = hand_glyph(S*0.66, max(2, S/30))
-    px = int(S*0.34 - g.shape[1]/2); py = int(S*0.44 - g.shape[0]/2)
+        c = sticker_canvas(S, girl, hi_solid, 0.54, 0.44, 0.40)
+        paste_center(c, heart_glyph(int(S*0.22), max(1, S//110)), 0.88, 0.08)
+    g, (tx, ty) = hand_glyph(S, max(2, S/30))
+    px = int(round(S * 0.12))
+    py = int(round(S * 0.22))
     paste_at(c, g, px, py)
-    tip = (int(min(max(0, px + tx), S-1)), int(min(max(0, py + ty), S-1)))
+    tip = (int(min(max(0, round(px + tx)), S-1)), int(min(max(0, round(py + ty)), S-1)))
     return c, tip
 
 def compose_link(S):
@@ -761,9 +757,7 @@ def main():
     # 1. 生成所有多尺寸静态 .cur 指针
     for name, (comp, sizes) in CURSORS.items():
         # 如果已经存在原版 arrow，我们直接使用原版文件以确保100%原味
-        if name == 'feiyu_arrow.cur' and os.path.exists('feiyu_arrow.cur') and os.path.getsize('feiyu_arrow.cur') == 559118:
-            print(f'  [✓] 采用原版经典正常选择: {name}')
-            continue
+        # 重新生成带饱满爱心的原版经典正常选择
         write_cur(name, sizes, comp)
 
     # 2. 生成丝滑高品质动态 .ani 指针
