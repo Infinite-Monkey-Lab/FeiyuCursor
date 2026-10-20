@@ -7,6 +7,8 @@
 
 [📦 一键下载 ZIP 包](FeiyuCursor_大肥鱼指针.zip) · [📖 使用说明](使用说明.txt) · [🎨 生成源码](build_feiyu.py)
 
+[![Code License: MIT](https://img.shields.io/badge/Code_License-MIT-blue.svg)](LICENSE) · [素材与许可范围](LICENSE-SCOPE.md)
+
 <br/>
 
 ![效果预览](效果预览.png)
@@ -41,3 +43,13 @@ DeepSeek 的官方吉祥物是一只灵动的深蓝小鲸鱼，在广大极客�
 1. 双击运行当前目录下的 **`一键安装并应用.bat`**；
 2. 脚本将自动把全套指针部署到系统目录并导入方案；
 3. 弹出鼠标属性面板后，方案已默认选定 **「大肥鱼指针」**，点击「确定」或「应用」即可换装完成！
+
+---
+
+## 许可与素材说明
+
+本项目中 yunyancuo 编写的原创程序代码及说明文档采用 [MIT License](LICENSE)，Copyright (c) 2026 yunyancuo。复用或分发时请保留许可证和版权声明。
+
+角色图片、预览图、生成的指针以及代码内嵌的第三方图像资源不自动纳入此 MIT 授权，具体范围见 [LICENSE-SCOPE.md](LICENSE-SCOPE.md)。仓库公开或下载包中附有 MIT 文本，不代表对第三方角色、Windows 资源或相关品牌的使用权作出授权。
+
+下载包同时附带 `LICENSE` 和 `LICENSE-SCOPE.md`；再分发时应一并保留，并分别确认所使用素材的授权范围。
