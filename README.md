@@ -1,55 +1,106 @@
 <div align="center">
 
 # 🐋 大肥鱼指针 · FeiyuCursor
-### DeepSeek-chan (Feiyu) Mouse Cursor Pack for Windows 11
 
-**大肥鱼游弋桌面 · 正常选择原汁原味 · 动态呼吸星轨 · 17项完备覆盖 · 多档DPI无损**
+**让大肥鱼陪你游过桌面。**
 
-[📦 一键下载 ZIP 包](FeiyuCursor_大肥鱼指针.zip) · [📖 使用说明](使用说明.txt) · [🎨 生成源码](build_feiyu.py)
+面向 Windows 10 / 11 的鼠标指针方案，覆盖 17 种指针角色，包含忙碌与后台运行两款动画。
 
-[![Code License: MIT](https://img.shields.io/badge/Code_License-MIT-blue.svg)](LICENSE) · [素材与许可范围](LICENSE-SCOPE.md)
+[![Windows](https://img.shields.io/badge/Windows-10%20%2F%2011-0078D4?style=flat-square)](#安装与应用)
+[![Cursor Roles](https://img.shields.io/badge/指针角色-17-57A9D9?style=flat-square)](#设计与细节)
+[![Code License: MIT](https://img.shields.io/badge/Code_License-MIT-24292F?style=flat-square)](LICENSE)
 
-<br/>
+[下载 ZIP](https://github.com/Infinite-Monkey-Lab/FeiyuCursor/raw/refs/heads/main/FeiyuCursor_大肥鱼指针.zip) · [安装步骤](#安装与应用) · [恢复默认](#恢复默认指针) · [生成源码](build_feiyu.py) · [素材许可](LICENSE-SCOPE.md)
 
-![效果预览](效果预览.png)
-
-`Windows 11 / 10 原生方案` `32位真彩色平滑Alpha` `17种指针完备覆盖` `32–256px 多尺寸位图` `全新动态指针(.ani)`
+![大肥鱼指针效果预览](效果预览.png)
 
 </div>
 
----
+天蓝箭头、角色贴图与星轨细节组成整套视觉风格。静态指针使用 `.cur`，忙碌和后台运行使用 16 帧 `.ani` 动画，并附静态版本。
 
-## 🐟 命名灵感：大肥鱼
+## 安装与应用
 
-DeepSeek 的官方吉祥物是一只灵动的深蓝小鲸鱼，在广大极客与粉丝群体中，大家亲切地称呼她为 **“大肥鱼”**（或“肥鱼娘”）。
-相比生硬的 `MoeCursor`，**「大肥鱼指针 (FeiyuCursor)」** 既亲切接地气，又精准传达了 DeepSeek 社区的精神纽带！
+### 推荐：一键安装
 
----
+1. [下载 ZIP 包](https://github.com/Infinite-Monkey-Lab/FeiyuCursor/raw/refs/heads/main/FeiyuCursor_大肥鱼指针.zip)，**先完整解压**，让脚本与指针文件保持在同一目录。
+2. 双击 `一键安装并应用.bat`。
+3. 在随后打开的鼠标属性窗口中，切到“指针”，选择 **大肥鱼指针**，点击“应用”或“确定”。
 
-## ✨ 核心设计亮点
+普通用户即可运行仓库中的安装脚本。它将文件复制到 `%LOCALAPPDATA%\Cursors\FeiyuCursor`，注册当前用户的指针方案；检测到管理员权限时，还会尝试同步副本到系统指针目录。
 
-1. **正常选择 (feiyu_arrow.cur)**：**100% 保持原版经典设计**。干净温润的天蓝平涂箭头 + 亲切探头的大肥鱼娘 + 单个点缀的粉红萌心，视野清爽，绝不突兀花哨。
-2. **忙 (feiyu_busy.ani / feiyu_busy.cur)**：**【新增 16 帧丝滑动态动画】** 大肥鱼娘随呼吸轻柔沉浮，身旁环绕金色星轨，伴随爱心微动，等待加载时赏心悦目。
-3. **后台运行 (feiyu_appstart.ani / feiyu_appstart.cur)**：**【新增 16 帧动态动画】** 经典箭头尖端绝对稳固保障操作手感，身旁金色星曜 360° 顺畅自转。
-4. **不可用 (feiyu_no.cur)**：保护大肥鱼的水晶结界防护护盾 + 镜面反光弧，配合大肥鱼娘微汗困扰萌趣神情。
-5. **精确选择 (feiyu_cross.cur)**：灵寻星轨准星，中心保留 1px 留空十字准星，设计绘图与游戏定位极致精准。
-6. **文本选择 (feiyu_ibeam.cur)**：双色高对比工字梁（深蓝廓 + 亮白芯），无论是在网页纯白文档还是 VS Code 深色编辑器中都清晰可见。
-7. **全系缩放与移动**：流线型胶囊双向箭头与四向罗盘，中心镶嵌灵星曜宝石核。
+### 备选：INF 安装
 
----
+右键 `安装鼠标指针.inf`，选择“安装”，随后按 <kbd>Win</kbd> + <kbd>R</kbd> 输入 `main.cpl`，在“指针”选项卡中选择“大肥鱼指针”并应用。Windows 11 可能需要先点“显示更多选项”。
 
-## 🚀 极速一键安装
+## 设计与细节
 
-1. 双击运行当前目录下的 **`一键安装并应用.bat`**；
-2. 脚本将自动把全套指针部署到系统目录并导入方案；
-3. 弹出鼠标属性面板后，方案已默认选定 **「大肥鱼指针」**，点击「确定」或「应用」即可换装完成！
+| 指针场景 | 设计 |
+| :--- | :--- |
+| 正常选择 | 天蓝箭头、探头角色与粉色爱心 |
+| 忙碌 | 角色轻微浮动，搭配环绕星轨与爱心动画 |
+| 后台运行 | 保持箭头尖端位置稳定，旁侧星曜旋转 |
+| 文本选择 | 深蓝轮廓与亮白内芯的工字指针 |
+| 精确选择 | 中心留空的十字准星与星轨装饰 |
+| 不可用 | 护盾造型与角色表情 |
+| 调整大小与移动 | 双向箭头及四向造型，保持整套配色一致 |
 
----
+静态指针包含 32–256 px 多尺寸位图。实际显示大小与清晰度取决于 Windows 指针设置和屏幕缩放。
 
-## 许可与素材说明
+<details>
+<summary>展开查看完整的 17 项指针文件</summary>
 
-本项目中 yunyancuo 编写的原创程序代码及说明文档采用 [MIT License](LICENSE)，Copyright (c) 2026 yunyancuo。复用或分发时请保留许可证和版权声明。
+| Windows 指针角色 | 文件 |
+| :--- | :--- |
+| 正常选择 | `feiyu_arrow.cur` |
+| 帮助选择 | `feiyu_help.cur` |
+| 后台运行 | `feiyu_appstart.ani`，附 `.cur` 静态版 |
+| 忙 | `feiyu_busy.ani`，附 `.cur` 静态版 |
+| 精确选择 | `feiyu_cross.cur` |
+| 文本选择 | `feiyu_ibeam.cur` |
+| 手写 | `feiyu_pen.cur` |
+| 不可用 | `feiyu_no.cur` |
+| 垂直调整大小 | `feiyu_sizens.cur` |
+| 水平调整大小 | `feiyu_sizewe.cur` |
+| 沿对角线调整大小 1 | `feiyu_sizenwse.cur` |
+| 沿对角线调整大小 2 | `feiyu_sizenesw.cur` |
+| 移动 | `feiyu_sizeall.cur` |
+| 候选 | `feiyu_up.cur` |
+| 链接选择 | `feiyu_hand.cur` |
+| 位置选择 | `feiyu_pin.cur` |
+| 人员选择 | `feiyu_person.cur` |
 
-角色图片、预览图、生成的指针以及代码内嵌的第三方图像资源不自动纳入此 MIT 授权，具体范围见 [LICENSE-SCOPE.md](LICENSE-SCOPE.md)。仓库公开或下载包中附有 MIT 文本，不代表对第三方角色、Windows 资源或相关品牌的使用权作出授权。
+</details>
 
-下载包同时附带 `LICENSE` 和 `LICENSE-SCOPE.md`；再分发时应一并保留，并分别确认所使用素材的授权范围。
+## 恢复默认指针
+
+按 <kbd>Win</kbd> + <kbd>R</kbd>，输入 `main.cpl` 打开鼠标属性。在“指针”选项卡中选择 Windows 默认方案并应用，即可切换回系统指针，无需重新安装系统组件。
+
+## 常见问题
+
+**运行脚本后没有变化？**
+
+打开 `main.cpl`，确认在“指针”选项卡中选中了“大肥鱼指针”，再点“应用”。
+
+**找不到方案，或者提示找不到文件？**
+
+确认已经解压完整下载包，脚本旁有 `feiyu_*.cur` 和 `feiyu_*.ani` 文件，再重新运行安装脚本。不要只下载或单独移动 `.bat` 文件。
+
+**不想使用动画？**
+
+在“指针”选项卡中分别选择“忙”和“后台运行”，点击“浏览”，改用对应的 `feiyu_busy.cur` 与 `feiyu_appstart.cur`，再应用。
+
+## 源码与反馈
+
+[build_feiyu.py](build_feiyu.py) 提供指针绘制、静态文件与动画生成逻辑，适合查看颜色、形状和动画的实现。安装与使用现成指针不需要 Python。
+
+发现显示或安装问题，欢迎提交 [Issue](https://github.com/Infinite-Monkey-Lab/FeiyuCursor/issues)，附上 Windows 版本、缩放比例、问题截图与复现步骤。
+
+## 许可与素材
+
+原创程序代码和说明文档采用 [MIT License](LICENSE)，Copyright (c) 2026 yunyancuo。
+
+角色图片、预览图、生成的指针及内嵌第三方图像**不自动纳入代码的 MIT 授权**。角色来源和素材授权范围以 [LICENSE-SCOPE.md](LICENSE-SCOPE.md) 为准；本项目不代表 DeepSeek 或 Windows 官方认可。
+
+下载包是代码、文档与素材的合集。再分发时应保留 `LICENSE` 和 `LICENSE-SCOPE.md`，并分别核实所用素材的授权。
+
+由 [Infinite Monkey Lab](https://github.com/Infinite-Monkey-Lab) 维护。
